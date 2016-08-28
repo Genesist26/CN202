@@ -3,7 +3,9 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class MergeFile {
@@ -19,48 +21,30 @@ public class MergeFile {
         
         
         try {
-            String allString = "";
-            while(sc1.hasNextLine())
-            {
-                allString += sc1.nextLine();
-                if(sc1.hasNextLine())
-                    allString += " ";
-                else
-                    break;
-                
-            }
-            allString += " ";
-            while(sc2.hasNextLine())
-            {
-                allString += sc2.nextLine();
-                if(sc2.hasNextLine())
-                    allString += " ";
-                else
-                    break;
-            }
-            String[] split = allString.split(" ");
-            int[] number = new int[split.length];
+            String sorted = "";
+            ArrayList<Integer> list = new ArrayList<Integer>();
             
-            for(int i = 0; i < split.length ; i++)
+            while(sc1.hasNextInt()){
+                int x = sc1.nextInt();
+                list.add(x);
+            }
+            while(sc2.hasNextInt()){
+                int x = sc2.nextInt();
+                list.add(x);
+            }
+                   
+            Collections.sort(list);
+
+            for(int i = 0; i < list.size() ; i++)
             {
-                number[i] = Integer.parseInt(split[i]);
+                String x = Integer.toString(list.get(i));
+                sorted += x;
+                if(i < list.size())
+                    sorted += " ";
                 
             }
             
-            Arrays.sort(number);
-            
-            allString = "";
-            
-            for(int i = 0; i < number.length ; i++)
-            {
-                String x = Integer.toString(number[i]);
-                allString += x;
-                if(i < number.length)
-                    allString += " ";
-                
-            }
-            
-            out.print(allString);
+            out.print(sorted);
             
         } finally {
             sc1.close();
