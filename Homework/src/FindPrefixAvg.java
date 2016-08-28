@@ -35,7 +35,7 @@ public class FindPrefixAvg {
             for (int i = 0; i < list.size(); i++) {
                 sum += list.get(i);
                 prefix = sum / count++;
-                System.out.println(prefix);
+                out.println(prefix);
             }
         } finally {
             sc.close();
