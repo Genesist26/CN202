@@ -9,32 +9,26 @@ public class EmployeeFile {
             throws IOException, ClassNotFoundException {
 
         File file = new File(employeeFileName);
-
+        ArrayList<Employee> list;
+                
         if (!file.exists()) {
-            ArrayList<Employee> list = new ArrayList<Employee>();
+            list = new ArrayList<Employee>();
             list.add(e);
-
-            FileOutputStream out = new FileOutputStream(employeeFileName);
-            ObjectOutputStream outObj = new ObjectOutputStream(out);
+            
+            ObjectOutputStream outObj = new ObjectOutputStream(new FileOutputStream(employeeFileName));
             outObj.writeObject(list);
             outObj.close();
         } else {
-
-            FileInputStream in = new FileInputStream(employeeFileName);
-            ObjectInputStream inObj = new ObjectInputStream(in);
-            ArrayList<Employee> list = (ArrayList<Employee>) inObj.readObject();
+            ObjectInputStream inObj = new ObjectInputStream(new FileInputStream(employeeFileName));
+            list = (ArrayList<Employee>) inObj.readObject();
             list.add(e);
             inObj.close();
 
-            FileOutputStream out = new FileOutputStream(employeeFileName);
-            ObjectOutputStream outObj = new ObjectOutputStream(out);
+            ObjectOutputStream outObj = new ObjectOutputStream(new FileOutputStream(employeeFileName));
             outObj.writeObject(list);
             outObj.close();
-
         }
-
     }
-
     public static boolean print(String employeeFileName)
             throws IOException, ClassNotFoundException {
         File file = new File(employeeFileName);
@@ -43,8 +37,7 @@ public class EmployeeFile {
             return false;
         }
         
-        FileInputStream in = new FileInputStream(employeeFileName);
-        ObjectInputStream inObj = new ObjectInputStream(in);
+        ObjectInputStream inObj = new ObjectInputStream(new FileInputStream(employeeFileName));
         ArrayList<Employee> list = new ArrayList<Employee>();
         list = (ArrayList<Employee>) inObj.readObject();
         
@@ -54,27 +47,10 @@ public class EmployeeFile {
         inObj.close();
         
         return true;
-
     }
-
     public static boolean sort(String employeeFileName)
             throws IOException, ClassNotFoundException {
         return true;
     }
 
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
-        Employee e1 = new Employee("001", "A", "B", 10000.0);
-        Employee e2 = new Employee("002", "C", "D", 5000.0);
-
-        try {
-            EmployeeFile.addEmployee(e1, "employee.dat");
-            EmployeeFile.addEmployee(e2, "employee.dat");
-            
-            boolean b = EmployeeFile.print("employee.dat");
-            
-        } catch (Exception ex) {
-            System.out.println("Catched");
-        }
-
-    }
 }
