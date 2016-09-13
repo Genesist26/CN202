@@ -47,16 +47,14 @@ public class TestRunningTime2 {
             
             startTime = System.nanoTime();
                 Z = prefixAvg1(X);
-                finishTime = System.nanoTime();
-       runningTime1 = finishTime - startTime;
-       sumRunningTime1 += runningTime1;
+                runningTime1 = System.nanoTime() - startTime;
+                sumRunningTime1 += runningTime1;
                 
                 
                 startTime = System.nanoTime();
                 Z = prefixAvg2(X);
-                finishTime = System.nanoTime();
-       runningTime2 = finishTime - startTime;
-       sumRunningTime2 += runningTime2;
+                runningTime2 = System.nanoTime() - startTime;
+                sumRunningTime2 += runningTime2;
             
             
         }
