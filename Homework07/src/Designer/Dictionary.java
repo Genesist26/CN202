@@ -55,10 +55,17 @@ public class Dictionary implements DictionaryADT
 
   public DictionaryItem getMaxkey() {
       int max = 0;
+      if(nItems == 0)
+          return null;
       for(int i=1; i<nItems;i++){
           if(a[i].compareTo(a[max]) > 0)
               max = i;
       }
       return a[max];
   }
+
+    
+    public boolean removeMaxKey() {
+        
+    }
 }
