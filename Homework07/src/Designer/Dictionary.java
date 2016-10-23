@@ -58,14 +58,22 @@ public class Dictionary implements DictionaryADT
       if(nItems == 0)
           return null;
       for(int i=1; i<nItems;i++){
-          if(a[i].compareTo(a[max]) > 0)
+          if(a[i].compareTo(a[max].getKey()) > 0)
               max = i;
       }
       return a[max];
   }
 
     
-    public boolean removeMaxKey() {
-        
+    public boolean removeMaxKeyItem() {
+        if(nItems == 0)
+            return false;
+        int max = 0;
+        for(int i=1; i<nItems;i++){
+          if(a[i].compareTo(a[max].getKey()) > 0)
+              max = i;
+        } 
+        a[max] = a[(nItems--)- 1];
+        return true;
     }
 }

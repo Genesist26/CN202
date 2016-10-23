@@ -38,6 +38,5 @@ public class StudentDataApp
 
     d.display();
     
-      System.out.println(d.getMaxkey());
   }
 }

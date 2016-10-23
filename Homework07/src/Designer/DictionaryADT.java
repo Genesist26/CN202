@@ -20,4 +20,7 @@ public interface DictionaryADT
   
   //Prob2 Homework7
   public DictionaryItem getMaxkey();
+  
+  //Prob3 Homework7
+  public boolean removeMaxKeyItem();
 }
