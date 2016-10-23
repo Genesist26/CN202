@@ -52,4 +52,13 @@ public class Dictionary implements DictionaryADT
     for(int j=0; j<nItems; j++)
       System.out.println(a[j]);
   }  
+
+  public DictionaryItem getMaxkey() {
+      int max = 0;
+      for(int i=1; i<nItems;i++){
+          if(a[i].compareTo(a[max]) > 0)
+              max = i;
+      }
+      return a[max];
+  }
 }

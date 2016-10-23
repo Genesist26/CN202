@@ -37,5 +37,7 @@ public class StudentDataApp
     d.delete("0383");
 
     d.display();
+    
+      System.out.println(d.getMaxkey());
   }
 }

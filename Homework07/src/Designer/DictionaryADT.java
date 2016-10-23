@@ -17,4 +17,7 @@ public interface DictionaryADT
 
   // display all items in the dictionary
   public void display();
+  
+  //Prob2 Homework7
+  public DictionaryItem getMaxkey();
 }
