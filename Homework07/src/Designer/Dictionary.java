@@ -22,6 +22,7 @@ public class Dictionary implements DictionaryADT
         return a[j];
     return null;
   }
+  /*
   public void insert(DictionaryItem item)
        throws DictionaryFullException
   {
@@ -30,6 +31,7 @@ public class Dictionary implements DictionaryADT
     a[nItems] = item;
     nItems++;
   }
+ 
   public boolean delete(Object key)
   {
     int j;
@@ -46,13 +48,51 @@ public class Dictionary implements DictionaryADT
       return true;
     }
   }
-
+ */
   public void display()
   {
     for(int j=0; j<nItems; j++)
       System.out.println(a[j]);
   }  
-
+  
+  //Prob 1.1
+  public Dictionary(){
+      a = new DictionaryItem[100];
+      nItems = 0;
+  }
+  
+  //Prob 1.2
+  public void insert(DictionaryItem item){
+      DictionaryItem[] b;
+      if(nItems == a.length){
+          b = new DictionaryItem[a.length * 2];
+          a = b;
+      }
+      a[nItems++] = item;
+  }
+  
+  //Prob 1.3
+  public boolean delete(Object key){
+      int j;
+      DictionaryItem[] b;
+      for (j=0; j<nItems; j++)
+        if (a[j].compareTo(key) == 0)
+            break;
+      
+      a[j] = a[(nItems--)-1];
+      
+      if(nItems < (a.length / 4)){
+          b = new DictionaryItem[a.length/2];
+          for(int i=0; i<nItems;i++)
+              b[i] = a[i];
+          
+          a = b;
+      }
+          
+      return true;
+  }
+  
+  //Prob2
   public DictionaryItem getMaxkey() {
       int max = 0;
       if(nItems == 0)
@@ -64,7 +104,7 @@ public class Dictionary implements DictionaryADT
       return a[max];
   }
 
-    
+    //Prob3
     public boolean removeMaxKeyItem() {
         if(nItems == 0)
             return false;
