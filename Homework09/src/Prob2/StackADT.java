@@ -2,7 +2,7 @@ package Prob2;
 
 public interface StackADT {
 
-    public void push(int item); // ItemทีÉเก็บอยู่ในโครงสร้าง Stack เป็นเลขจาํ นวนเตม็
+    public void push(int item); 
 
     public int pop() throws StackEmptyException;
 

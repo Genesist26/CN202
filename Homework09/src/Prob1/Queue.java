@@ -1,14 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package prop1;
+package Prob1;
 
-/**
- *
- * @author NALINA
- */
 public class Queue implements QueueADT {
 
     private Object[] queueArray;
@@ -19,7 +10,6 @@ public class Queue implements QueueADT {
         nItems = -1;
     }
 
-    @Override
     public void insert(Object o) {
         if (size() == queueArray.length) {
             throw new QueueFullException("Queue is full.");
@@ -31,7 +21,6 @@ public class Queue implements QueueADT {
         queueArray[0] = o;
     }
 
-    @Override
     public Object remove() throws QueueEmptyException {
         if (isEmpty()) {
             throw new QueueEmptyException("Queue is empty.");
@@ -43,17 +32,14 @@ public class Queue implements QueueADT {
         return temp;
     }
 
-    @Override
     public int size() {
         return nItems + 1;
     }
 
-    @Override
     public boolean isEmpty() {
         return nItems == -1;
     }
 
-    @Override
     public Object front() throws QueueEmptyException {
         if (isEmpty()) {
             throw new QueueEmptyException("Queue is empty.");
