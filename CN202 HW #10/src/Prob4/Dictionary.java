@@ -33,10 +33,13 @@ public class Dictionary implements DictionaryADT {
 
     public List findAll(Object key) {
         List list = new List();
-        int n =0;
-        for(int i=0; i < a.length; i++){
-            if(a[i].getKey())
+        for(int i=0; i<nItems; i++)
+        {
+            if(a[i].compareTo(key) == 0)
+                list.insertAtFront(a[i]);
         }
+        
+        return list;
     }
 
     public void insert(DictionaryItem item)
