@@ -61,15 +61,12 @@ public class Queue implements QueueADT {
     }
 
     public void replaceInQueue(int thisItem, int thatItem) {
-        Queue temp = new Queue();
-        int n;
-        while(! isEmpty())
-        {
-            n = remove();
-            if(n == thisItem)
-                temp.insert(thatItem);
+        for(int i = 0; i<size();i++){
+            int item = remove();
+            if(item == thisItem)
+                insert(thatItem);
             else
-                temp.insert(n);
+                insert(item);
         }
         
     }
