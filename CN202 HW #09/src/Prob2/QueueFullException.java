@@ -3,19 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cn202.hw.pkg09;
+package Prob2;
 
 /**
  *
  * @author Salee
  */
-public class CN202HW09 {
+public class QueueFullException extends RuntimeException {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public QueueFullException(String err) {
+        super(err);
     }
-    
 }
