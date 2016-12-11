@@ -58,19 +58,10 @@ public class Queue implements QueueADT {
     public void reverseQueue() {
         Stack stack = new Stack();
         while(!isEmpty())
-        {
             stack.push(remove());
+        while(!stack.isEmpty()){
+            insert(stack.pop());
         }
-        
-        while(!stack.isEmpty())
-        {
-            this.insert(stack.pop());
-        }
-        
-    }
-    
-    public void display()
-    {
         
     }
 }
